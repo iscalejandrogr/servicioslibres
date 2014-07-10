@@ -1,28 +1,56 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html> 
 <html>
 <head>
+
 <meta charset="utf-8">
 <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width;" />
-<title>base de datos remota</title>
-<script type="text/javascript" src="cordova-2.0.0.js"></script>
-<link rel="stylesheet" href="css/jquery.mobile-1.4.3.min.css">
-<!--link rel="stylesheet" href="css/jquery.mobile.theme-1.4.3.min.css">
-<link rel="stylesheet" href="css/jquery.mobile.structure-1.4.3.min.css"-->
-<script src="js/jquery-2.1.1.js"></script>
-<script src="js/jquery.mobile-1.4.3.min.js"></script>
-<script src="phonegap.js"></script>
+<link href="css/jquery.mobile-1.4.3.min.css" rel="stylesheet" type="text/css"/>
+<link href="css/jquery.mobile.structure-1.0.min.css" rel="stylesheet" type="text/css"/>
 
+<script src="phonegap.js"></script>
+<script src="js/jquery-2.1.1.js" type="text/javascript"></script>
+<script src="js/jquery.mobile-1.4.3.min.js" type="text/javascript"></script>
 
 <script type="text/javascript">
-document.addEventListener("deviceready", onDeviceReady, true);
+
+$(document).ready(function(){
+var x=$("#tomarFoto");
+x.tap(inicio);
+});
+
+function inicio(){
+navigator.camera.getPicture(gotPicture,onError,{
+sourceType:Camera.PictureSourceType.CAMERA,destinationType:Camera.DestinationType.FILE_URI,quality:50
+}
+);
+}
+/*
+document.addEventListeiner("deviceready", function(){
+alert("hola");
+
+},false);
+/*
+	document.addEventListener("deviceready", function(){
+	alert("hola mundo");
+		       $("#nombre").tap(function(){
+			alert("hola mundo");
+		});			
+	}, false);
+
+*/
+/*
+document.addEventListener("deviceready", onDeviceReady, false);
+
+
 function onDeviceReady() {
-$("#selectorBtn").touchstart(function(e) {
+$("#tomarFoto").tap(function(e) {
+alert("hola");
 navigator.camera.getPicture(gotPicture,onError,{
 sourceType:Camera.PictureSourceType.CAMERA,destinationType:Camera.DestinationType.FILE_URI,quality:50
 }
 );
 });
-}
+}*/
 function gotPicture(fileLocation) {
 x$("#message").html("<p>Uploading your image...</p>");
 var options = new FileUploadOptions();
@@ -70,14 +98,14 @@ alert("Error: " + JSON.stringify(error));
 	</div>
     
 	<div data-role="content">
-	<form method="post" action="">
-	  <fieldset class="ui-field-contain">
+	<form method="post" action="uno.php">
+	  <!--fieldset class="ui-field-contain"-->
 	        <input type="text" placeholder="Nombre del servicio" id="nombre" />
 	        <textarea placeholder="Dirección" id="direccion"></textarea>
 	        <input type="text" placeholder="Teléfono" id="telefono" />
 	        <input type="email" placeholder="Correo electrónico" id="email" />
 	        <select name="clasificacion" id="clasificacion" >
-		  <optgroup label="Clasificación de servicios" placeholder="hola">
+		  <optgroup label="Clasificación de servicios">
 		    <option style="color:#ccc" value="" disabled selected >--Selecciona una clasificación--</option>
 		    <option value="1">Hospitales</option>
 		    <option value="2">Escuelas</option>
@@ -91,20 +119,20 @@ alert("Error: " + JSON.stringify(error));
 		    <option value="10">Plaza de gobierno</option>
 		    </optgroup>
 		</select>    
-		<button id="selectorBtn">Take Photo</button>
+		<a href="#" data-role="button" id="tomarFoto" >Tomar Foto</a>
 		<div id="message"></div>
 		<img id="returnImage" />
 		<input type="button" id="obtenercord" value="Obtener coordenadas de ubicación " />
 		<input type="text" placeholder="Latitud" id="latitud" disabled="true" />
 		<input type="text" placeholder="Longitud" id="longitud" disabled="true"/>
-	  </fieldset>
+	  <!--/fieldset-->
 	</form>	
 	</div>    
 	<div data-role="footer" data-position="fixed" data-theme="b" >
 	<h1>Derechos reservados</h1>
 	</div>
-
 </div>
+
 <div data-role="page" id="Consultar" >
 	<div data-role="header" data-theme="b" data-position="fixed" data-add-back-btn="true" data-icon="back">
 	<h1>Consultar servicios</h1>
