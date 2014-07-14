@@ -38,17 +38,20 @@ alert('fografia');
 }
 
 function  obtenerCoordenadas(){
-alert('coordenadas');
+
 if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(obtenerCords,cordsError);
+    //navigator.geolocation.getCurrentPosition(obtenerCords,cordsError);
+     navigator.geolocation.getCurrentPosition(onSuccess, onError);
+    alert('coordenadas');
 } else {
     alert("Tu navegador no soporta o no tiene habilitada la 'Geolocalización'");
 }
 }
-function obtenerCords(position){
+function onSuccess(position){
+alert('mostrar coordenadas');
 alert('latitud' +position.coords.latitude+' longitud'+position.coords.longitude);
 }
-function cordsError(error){
+function onError(error){
 alert('codigo:'+error.code+' mensaje:'+error.message);
 }
 </script>
