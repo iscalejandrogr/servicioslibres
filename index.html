@@ -15,7 +15,7 @@ $(function(){
   document.addEventListener("deviceready", function(){  
     var botonfoto=$("#capturaFoto"); 
     botonfoto.tap(function(){  
-    tomarFoto();
+    captureImage();
     }); 
     
     var botoncoordenadas=$("#obtenercord"); 
@@ -26,18 +26,28 @@ $(function(){
   },false);
 
 });   
-function tomarFoto(){
-	/*navigator.device.capture.captureImage(function(img){
-		for(i=0;i<img.length;i++){
-			ruta = img[i].fullPath;
-		}
-		//$('#capturaFoto').attr('foto',ruta);
-		$('#regFoto').html('<img src="'+ruta+'" width="100%" />');
-	},function(err){
-		alert("Error: "+err.code);
-	},{limit:2});*/
-	navigator.camera.getPicture(gotPicture,onError,{
-sourceType:Camera.PictureSourceType.CAMERA,destinationType:Camera.DestinationType.FILE_URI,quality:50});
+ function captureSuccess(mediaFiles) {
+        var i, len;
+        for (i = 0, len = mediaFiles.length; i < len; i += 1) {
+            uploadFile(mediaFiles[i]);
+        }       
+    }
+
+    // Llamada si algún error ocurre.
+    // 
+    function captureError(error) {
+        var msg = 'Ocurrió un error mientras se capturaba: ' + error.code;
+        navigator.notification.alert(msg, null, 'Uh oh!');
+    }
+
+    // Un botón llamara esta función
+    //
+    function captureImage() {
+        // Lanza la aplicación de cámara, 
+        // y permite capturar hasta 2 imágenes
+        navigator.device.capture.captureImage(captureSuccess, captureError, {limit: 2});
+    }
+
 }
 
 
