@@ -12,16 +12,16 @@
 
 <script type="text/javascript">
 $(function(){
-  document.addEventListener("deviceready", function(){
-  alert("Favor de registrar datos en los campos");
+  document.addEventListener("deviceready", function(){  
   var boton=$("#capturaFoto"); 
   boton.tap(function(){  
   alert("Favor de registrar datos en los campos");
-  //tomarFoto();
+  tomarFoto();
   }); 
         
   },false);
-/*
+
+});   
 function tomarFoto(){
 alert("hola");
 	navigator.device.capture.captureImage(function(mediaFiles){
@@ -30,9 +30,7 @@ alert("hola");
 	},function(error){
 		navigator.notification.alert('Error code: ' + error.code, null, 'Capture Error');
 	},{limit:1});
-}*/
-
-});   
+}
 </script>
 </head>
 <body>
