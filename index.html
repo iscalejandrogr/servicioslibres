@@ -40,18 +40,18 @@ alert('fografia');
 function  obtenerCoordenadas(){
 
 if (navigator.geolocation) {
-    //navigator.geolocation.getCurrentPosition(obtenerCords,cordsError);
-     navigator.geolocation.getCurrentPosition(onSuccess, onError);
-    alert('coordenadas');
+     navigator.geolocation.getCurrentPosition(obtenerCords, cordsError);
 } else {
     alert("Tu navegador no soporta o no tiene habilitada la 'Geolocalización'");
 }
 }
-function onSuccess(position){
-alert('mostrar coordenadas');
-alert('latitud' +position.coords.latitude+' longitud'+position.coords.longitude);
+function obtenerCords(position){
+var latitud=$("#latitud");
+latitud.val(position.coords.latitude);
+var longitud=$("#longitud");
+latitud.val(position.coords.longitude);
 }
-function onError(error){
+function cordsError(error){
 alert('codigo:'+error.code+' mensaje:'+error.message);
 }
 </script>
