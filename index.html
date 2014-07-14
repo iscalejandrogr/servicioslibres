@@ -32,13 +32,13 @@ alert('fografia');
 		for(i=0;i<img.length;i++){
 			ruta = img[i].fullPath;
 		}
-		$('#regFoto').attr('foto',ruta);
+		$('#capturaFoto').attr('foto',ruta);
 		$('#regFoto').html('<img src="'+ruta+'" width="100%" />');
 	},function(err){
 		alert("Error: "+err.code);
 	},{limit:2});
 }
-}
+
 
 function  obtenerCoordenadas(){
 
