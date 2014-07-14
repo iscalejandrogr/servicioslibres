@@ -13,23 +13,36 @@
 <script type="text/javascript">
 $(function(){
   document.addEventListener("deviceready", function(){  
-  var boton=$("#capturaFoto"); 
-  boton.tap(function(){  
-  alert("Favor de registrar datos en los campos");
-  tomarFoto();
-  }); 
+    var botonfoto=$("#capturaFoto"); 
+    botonfoto.tap(function(){  
+    tomarFoto();
+    }); 
+    
+    var botoncoordenadas=$("#capturaFoto"); 
+    botoncoordenadas.tap(function(){  
+    obtenerCoordenadas();
+    }); 
         
   },false);
 
 });   
 function tomarFoto(){
-alert("hola");
 	navigator.device.capture.captureImage(function(mediaFiles){
 		path = mediaFiles[0].fullPath;
 		$('#regFoto').append('<br><img src="'+path+'" width="100%" />').attr('rel',path);
 	},function(error){
 		navigator.notification.alert('Error code: ' + error.code, null, 'Capture Error');
 	},{limit:1});
+}
+
+function  obtenerCoordenadas(){
+navigator.geolocation.getCurrentPosition(obtenerCords, cordsError);
+}
+function obtenerCords(position){
+alert('latitud' +position.coords.latitude+' longitud'+position.coords.longitude);
+}
+function cordsError(error){
+alert('codigo:'+error.code+' mensaje:'+error.message);
 }
 </script>
 </head>
