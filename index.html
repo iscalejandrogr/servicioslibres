@@ -28,13 +28,16 @@ $(function(){
 });   
 function tomarFoto(){
 alert('fografia');
-
-	navigator.device.capture.captureImage(function(mediaFiles){
-		path = mediaFiles[0].fullPath;
-		$('#regFoto').append('<br><img src="'+path+'" width="100%" />').attr('rel',path);
-	},function(error){
-		navigator.notification.alert('Error code: ' + error.code, null, 'Capture Error');
-	},{limit:1});
+	navigator.device.capture.captureImage(function(img){
+		for(i=0;i<img.length;i++){
+			ruta = img[i].fullPath;
+		}
+		$('#regFoto').attr('foto',ruta);
+		$('#regFoto').html('<img src="'+ruta+'" width="100%" />');
+	},function(err){
+		alert("Error: "+err.code);
+	},{limit:2});
+}
 }
 
 function  obtenerCoordenadas(){
@@ -49,7 +52,7 @@ function obtenerCords(position){
 var latitud=$("#latitud");
 latitud.val(position.coords.latitude);
 var longitud=$("#longitud");
-latitud.val(position.coords.longitude);
+longitud.val(position.coords.longitude);
 }
 function cordsError(error){
 alert('codigo:'+error.code+' mensaje:'+error.message);
