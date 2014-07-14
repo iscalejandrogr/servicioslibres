@@ -18,7 +18,7 @@ $(function(){
     tomarFoto();
     }); 
     
-    var botoncoordenadas=$("#capturaFoto"); 
+    var botoncoordenadas=$("#obtenercord"); 
     botoncoordenadas.tap(function(){  
     obtenerCoordenadas();
     }); 
@@ -36,7 +36,8 @@ function tomarFoto(){
 }
 
 function  obtenerCoordenadas(){
-navigator.geolocation.getCurrentPosition(obtenerCords, cordsError);
+navigator.geolocation.getCurrentPosition(obtenerCords, cordsError, optn);
+
 }
 function obtenerCords(position){
 alert('latitud' +position.coords.latitude+' longitud'+position.coords.longitude);
