@@ -32,7 +32,7 @@ alert('fografia');
 		for(i=0;i<img.length;i++){
 			ruta = img[i].fullPath;
 		}
-		$('#capturaFoto').attr('foto',ruta);
+		//$('#capturaFoto').attr('foto',ruta);
 		$('#regFoto').html('<img src="'+ruta+'" width="100%" />');
 	},function(err){
 		alert("Error: "+err.code);
@@ -101,11 +101,12 @@ alert('codigo:'+error.code+' mensaje:'+error.message);
 		    </optgroup>
 		</select>    
 
-    <input type="button" id="capturaFoto" value="Tomar Foto" />
-<div id="regFoto"></div>
+		<input type="button" id="capturaFoto" value="Tomar Foto" />
+		<div id="regFoto"></div>
 		<input type="button" id="obtenercord" value="Obtener coordenadas de ubicación" />
 		<input type="text" placeholder="Latitud" id="latitud" readonly="readonly" />
 		<input type="text" placeholder="Longitud" id="longitud" readonly="readonly" />
+		<input type="button" id="guardar" value="Guardar" />
 
 	</div>    
 	<div data-role="footer" data-position="fixed" data-theme="b" >
