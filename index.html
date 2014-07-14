@@ -29,7 +29,7 @@ $(function(){
 
 //Captura
 function tomarFoto(){
-	navigator.device.capture.captureImage(function(img){
+	/*navigator.device.capture.captureImage(function(img){
 		for(i=0;i<img.length;i++){
 			ruta = img[i].fullPath;
 		}
@@ -38,7 +38,18 @@ function tomarFoto(){
 	},function(err){
 		alert("Error: "+err.code);
 	},{limit:2});
+	*/
+navigator.camera.getPicture(onSuccess, onFail, { quality: 50, destinationType: Camera.DestinationType.FILE_URI }); 
 }
+    function onSuccess(imageURI) {
+        var image = document.getElementById('miImagen');
+        image.src = imageURI;
+    }
+
+    function onFail(message) {
+        alert('OcurriÃ³ un error: ' + message);
+    }
+
 
 function  obtenerCoordenadas(){
 
@@ -102,7 +113,7 @@ alert('codigo:'+error.code+' mensaje:'+error.message);
 		</select>    
 
 		<a href="#" data-role="button" id="regFoto">Tomar Foto</a>
-		<div id="regImg" style="width: 100%;"></div>
+		<div id="regImg" style="width: 100%;"><img id="miImagen" src="" /> </div>
 		<input type="button" id="obtenercord" value="Obtener coordenadas de ubicación" />
 		<input type="text" placeholder="Latitud" id="latitud" readonly="readonly" />
 		<input type="text" placeholder="Longitud" id="longitud" readonly="readonly" />
