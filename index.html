@@ -28,6 +28,7 @@ $(function(){
 });   
 function tomarFoto(){
 alert('fografia');
+
 	navigator.device.capture.captureImage(function(mediaFiles){
 		path = mediaFiles[0].fullPath;
 		$('#regFoto').append('<br><img src="'+path+'" width="100%" />').attr('rel',path);
@@ -38,8 +39,11 @@ alert('fografia');
 
 function  obtenerCoordenadas(){
 alert('coordenadas');
-navigator.geolocation.getCurrentPosition(obtenerCords, cordsError);
-
+if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(obtenerCords,cordsError);
+} else {
+    alert("Tu navegador no soporta o no tiene habilitada la 'Geolocalización'");
+}
 }
 function obtenerCords(position){
 alert('latitud' +position.coords.latitude+' longitud'+position.coords.longitude);
