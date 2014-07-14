@@ -27,6 +27,7 @@ $(function(){
 
 });   
 function tomarFoto(){
+alert('fografia');
 	navigator.device.capture.captureImage(function(mediaFiles){
 		path = mediaFiles[0].fullPath;
 		$('#regFoto').append('<br><img src="'+path+'" width="100%" />').attr('rel',path);
@@ -36,7 +37,8 @@ function tomarFoto(){
 }
 
 function  obtenerCoordenadas(){
-navigator.geolocation.getCurrentPosition(obtenerCords, cordsError, optn);
+alert('coordenadas');
+navigator.geolocation.getCurrentPosition(obtenerCords, cordsError);
 
 }
 function obtenerCords(position){
