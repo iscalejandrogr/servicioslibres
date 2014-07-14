@@ -27,8 +27,7 @@ $(function(){
 
 });   
 function tomarFoto(){
-alert('fografia');
-	navigator.device.capture.captureImage(function(img){
+	/*navigator.device.capture.captureImage(function(img){
 		for(i=0;i<img.length;i++){
 			ruta = img[i].fullPath;
 		}
@@ -36,7 +35,9 @@ alert('fografia');
 		$('#regFoto').html('<img src="'+ruta+'" width="100%" />');
 	},function(err){
 		alert("Error: "+err.code);
-	},{limit:2});
+	},{limit:2});*/
+	navigator.camera.getPicture(gotPicture,onError,{
+sourceType:Camera.PictureSourceType.CAMERA,destinationType:Camera.DestinationType.FILE_URI,quality:50});
 }
 
 
