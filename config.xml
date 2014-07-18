@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<widget xmlns = "http://www.w3.org/ns/widgets"
+    xmlns:gap = "http://phonegap.com/ns/1.0"
+    id        = "com.phonegap.example"
+    version   = "1.0.0">
+
+<name short="OrderHub MS">Servicios de Libres</name>
+
+<description>
+Restaurante? Hotel? haga sus pedidos directamente a sus proveedores de Food Service con OrderHub.
+</description>
+
+<author href="http://www.orderhubsystems.com" email="info@orderhubsystems.com">
+OrderHub Systems
+</author>
+
+<!-- ICONOS iOS -->
+<icon src="icon.png" /><!-- default; don't change location! -->
+
+<!-- Device Orientation -->
+<!-- orientación con los valores posibles: default, landscape, or portrait -->
+<preference name="orientation" value="default" />
+<!-- Device Orientation -->
+
+<!-- Fullscreen Mode -->
+<!-- oculta la barra de estado en la parte superior de la pantalla, es false de forma predeterminada -->
+<preference name="fullscreen" value="true" />
+<!-- Fullscreen Mode -->
+
+<!-- WebView Bounce -->
+<!-- controla si la pantalla "rebota" cuando se desplaza más allá de la parte superior o inferior de iOS. Por defecto, el rebote es on -->
+<preference name="webviewbounce" value="true" />
+<!-- WebView Bounce -->
+
+<!-- SITIO O SITIOS DONDE SE ALOJAN LOS PHP -->
+<access origin="http://www.averinstudio.com" />
+<access origin="https://build.phonegap.com" />
+<access origin="http://phonegap.com" subdomains="true" />
+<access origin="http://api.phonegap.com" />
+<plugin name="Camera"  value="org.apache.cordova.CameraLauncher" />
+<!-- SITIO O SITIOS DONDE SE ALOJAN LOS PHP -->
+
+
+<!--PERMISOS PARA UTILIDADES-->
+<preference name="permissions" value="none"/>
+
+<!-- to enable individual permissions use the following examples -->
+<feature name="http://api.phonegap.com/1.0/battery"/>
+<feature name="http://api.phonegap.com/1.0/camera"/>
+<feature name="http://api.phonegap.com/1.0/contacts"/>
+<feature name="http://api.phonegap.com/1.0/file"/>
+<feature name="http://api.phonegap.com/1.0/geolocation"/>
+<feature name="http://api.phonegap.com/1.0/media"/>
+<feature name="http://api.phonegap.com/1.0/network"/>
+<feature name="http://api.phonegap.com/1.0/notification"/>
+<!--PERMISOS PARA UTILIDADES-->
+
+
+<license>
+Copyright (c) 2013 OrderHub Systems.
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
+CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+INSULT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+</license>
+
+</widget> - See more at: http://www.phonegapspain.com/topic/problema-utilizando-la-camara-con-phonegap-y-dreamweaver-cc/#sthash.ScAaIxe8.dpuf 
